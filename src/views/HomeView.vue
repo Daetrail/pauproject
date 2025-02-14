@@ -26,7 +26,6 @@ function addToBasket(productId) {
 
     productStore.basketItems.push(productId);
     toast.add({ severity: 'success', summary: 'Added to basket', detail: 'Successfully added item to basket!', life: 3000 });
-    console.log('sdfads')
 }
 
 </script>
@@ -36,6 +35,7 @@ function addToBasket(productId) {
         <div class="row gy-5">
             <div class="col-3" v-for="product in productStore.products" :key="product.id">
                 <div class="card" style="width: 18rem;">
+                    <img :src="product.imageLink" class="card-img-top card-product-image mx-auto">
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
                         <h6 class="card-subtitle mb-2 text-body-secondary">Price: £{{ product.price }}</h6>
@@ -48,3 +48,12 @@ function addToBasket(productId) {
         </div>
     </div>
 </template>
+
+<style scoped>
+
+.card-product-image {
+    width: 250px;
+    height: 250px;
+}
+
+</style>
